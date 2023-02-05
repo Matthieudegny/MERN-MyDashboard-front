@@ -1,0 +1,159 @@
+@import "../../style/style.scss";
+
+.Orders {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 97%;
+  padding: 3% 0;
+  margin: auto;
+  margin-bottom: 110px;
+  margin-top: 70px;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: $BckgContainer;
+  box-shadow: $BoxShadow;
+
+  button {
+    height: 2.8vh;
+    padding-top: 0.2vh;
+    cursor: pointer;
+  }
+
+  input,
+  select {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-bottom: 1px solid #333;
+    height: 3vh;
+    font-size: 18px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  &-date {
+    width: 10.5vw;
+  }
+
+  &-asset {
+    width: 6vw;
+  }
+
+  &-direction {
+    width: 6vw;
+  }
+
+  &-taille {
+    width: 6vw;
+  }
+
+  &-risk {
+    width: 6vw;
+  }
+
+  &-profit {
+    width: 6vw;
+  }
+
+  &-realise {
+    width: 6vw;
+  }
+
+  &-balance {
+    width: 6vw;
+  }
+
+  &-actions {
+    width: 10vw;
+    height: 2.9vh;
+    &_button {
+      background-color: rgba(6, 66, 230, 0.5);
+      width: 100%;
+      color: #ffffff;
+      font-size: 18px;
+      padding: 3px;
+      border: none;
+      border-radius: 5px;
+      transition: 0.4s ease-out;
+    }
+    &_button:hover {
+      box-shadow: 0px 0px 15px 1px rgba(6, 66, 230, 0.5);
+      transition: 0.4s ease-in;
+    }
+  }
+}
+
+.styled-table {
+  position: relative;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+}
+
+.styled-table thead tr {
+  background-color: $firstColor;
+  color: #ffffff;
+  text-align: center;
+}
+.styled-table th,
+.styled-table td {
+  text-align: center;
+  height: 3vh;
+  padding: 5px;
+  margin: 4%;
+}
+
+// .styled-table tbody tr {
+//   border-bottom: 0.2px solid #dddddd;
+// }
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid $positivColor;
+}
+.styled-table tbody tr:first-of-type {
+  height: 50px;
+}
+
+.container-button-actions {
+  display: flex;
+
+  button {
+    width: 50%;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+
+  &-update {
+    margin-right: 2px;
+    background-color: $lightbuttoncolor;
+    border: none;
+  }
+
+  &-update:hover {
+    box-shadow: 0px 0px 15px 1px $lightbuttoncolor;
+  }
+
+  &-delete {
+    margin-left: 2px;
+    background-color: $NegativeColor;
+    border: none;
+  }
+
+  &-delete:hover {
+    box-shadow: 0px 0px 15px 1px $NegativeColor;
+  }
+}
+
+.empty {
+  box-shadow: -1px -1px 24px 1px $NegativeColor;
+  margin: 0px 10px;
+}
+.checked {
+  box-shadow: -1px -1px 24px 1px $positivColor;
+  margin: 0px 10px;
+}

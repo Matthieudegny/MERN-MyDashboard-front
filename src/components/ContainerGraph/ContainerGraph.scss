@@ -1,0 +1,98 @@
+@import "../../style/style.scss";
+
+.Main-container {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    position: relative;
+    text-align: center;
+    font-size: $h2FontSize;
+  }
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: white;
+
+  &-sectionLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 60%;
+    height: 83%;
+    font-size: $textFontSize;
+    padding: 3% 3%;
+    border-radius: 10px;
+    background-color: $BckgContainer;
+    box-shadow: $BoxShadow;
+    z-index: 20;
+  }
+
+  &-sectionRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    max-width: 25%;
+    height: 83%;
+    padding: 3% 3%;
+    margin-right: -3%;
+    box-sizing: content-box;
+
+    &-array {
+      width: 100%;
+      background-color: $BckgContainer;
+      box-shadow: $BoxShadow;
+      border-radius: 10px;
+      z-index: 20;
+
+      &-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin: 20px 0;
+        padding: 0 5px;
+        height: 5vh;
+        font-size: $textFontSize;
+
+        &-category {
+          margin-left: 0.5vw;
+        }
+
+        &-value {
+          margin-right: 0.5vw;
+        }
+      }
+
+      &-item:last-child {
+        height: 4vh;
+      }
+
+      &-item:before {
+        position: absolute;
+        bottom: -10px;
+        left: -1px;
+        content: "";
+        width: 100%;
+        height: 0.5px;
+        background-color: $lightbuttoncolor;
+      }
+
+      &-item:last-child:before {
+        height: 0px;
+      }
+    }
+  }
+}
