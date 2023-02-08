@@ -6,7 +6,7 @@ const fetchOrders = async () => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "https://my-dash-board-md.vercel.app",
+      "Access-Control-Allow-Origin": "*",
     },
   });
   const result = await orders.json();
