@@ -29,7 +29,7 @@ const SideBar = () => {
   }, []);
 
   //diplay
-  const displayIconLog = () => {
+  const displayLinkLog = () => {
     return token ? (
       <NavLink
         to={"/login"}
@@ -58,7 +58,6 @@ const SideBar = () => {
   return (
     <div className="SideBar_container">
       <div className="SideBar_container_Links_Container">
-        {displayIconLog()}
         {pages.map((page, index) => (
           <React.Fragment key={index}>
             <NavLink
@@ -73,6 +72,7 @@ const SideBar = () => {
             </NavLink>
           </React.Fragment>
         ))}
+        {displayLinkLog()}
       </div>
     </div>
   );

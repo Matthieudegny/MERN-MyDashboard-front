@@ -2,7 +2,13 @@ import { useMutation, useQuery } from "react-query";
 const URL = "https://my-dashboard-back.vercel.app";
 
 const fetchOrders = async () => {
-  const orders = await fetch(URL + "/api/dashboard/");
+  const orders = await fetch(URL + "/api/dashboard/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "https://my-dash-board-md.vercel.app",
+    },
+  });
   const result = await orders.json();
   return result;
 };
@@ -64,6 +70,7 @@ const saveOrder = (orderObject) => {
     body: JSON.stringify(orderObject[0]),
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "https://my-dash-board-md.vercel.app",
       // prettier-ignore
       'Authorization': `Bearer ${orderObject[1]}`,
     },
@@ -81,6 +88,7 @@ const deleteOrder = (objectToReturn) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "https://my-dash-board-md.vercel.app",
       // prettier-ignore
       'Authorization': `Bearer ${objectToReturn[1]}`,
     },

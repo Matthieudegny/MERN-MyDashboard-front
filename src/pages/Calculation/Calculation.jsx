@@ -29,9 +29,16 @@ const Calculation = () => {
             " Votre prix d'achat doit être différent de votre prix de stop loss",
             "#333A56"
           );
-        } else {
-          const result = (capital * (risk / 100)) / (buyPrice - stopLoss);
-          setPositionSize(result);
+          if (risk > 100) {
+            displayInfoMessage(
+              " Votre risque ne peut être supérieur à 100% de votre capital",
+              "#333A56"
+            );
+          } else {
+            let result = (capital * (risk / 100)) / (buyPrice - stopLoss);
+            result = result.toFixed(2);
+            setPositionSize(result);
+          }
         }
       }
     }
@@ -58,7 +65,7 @@ const Calculation = () => {
           </div>
 
           <div className="container_calculation_sectionTop_container">
-            <label>Risque:</label>
+            <label>Risque en %:</label>
             <div className="container_calculation_sectionTop_container_inputContainer">
               <input
                 className="container_calculation_sectionTop_container_inputContainer_input"
@@ -109,7 +116,7 @@ const Calculation = () => {
         <button onClick={calculPosition}>Calcul</button>
 
         <div className="container_calculation_sectionBottom_container">
-          Taille de la position : {positionSize}
+          Taille du lot : {positionSize}
         </div>
       </section>
     </ContainerBox>
