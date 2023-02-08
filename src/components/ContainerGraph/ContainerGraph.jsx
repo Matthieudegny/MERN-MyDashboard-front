@@ -22,10 +22,10 @@ const Container = ({ labels, values, graph }) => {
 
         <section className="container-sectionRight">
           <div className="container-sectionRight-array">
-            {labels?.map((ligne, index) => {
+            {labels?.map((label, index) => {
               return (
                 <React.Fragment key={index}>
-                  {displayLigne(labels[index], values[index])}
+                  {displayLigne(label, values[index])}
                 </React.Fragment>
               );
             })}
