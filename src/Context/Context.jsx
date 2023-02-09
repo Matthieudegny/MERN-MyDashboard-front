@@ -30,9 +30,11 @@ const DashBoardContextProvider = (props) => {
   const [token, setToken] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [triggerInfoMessage, setTriggerInfoMessage] = useState(false);
+  const [loaderVisibility, setLoaderVisibility] = useState(true);
 
   const onSuccessOrdersRequest = (allOrders) => {
     setOrders(allOrders);
+    setLoaderVisibility(false);
   };
 
   let pricesBTC = [];
@@ -120,6 +122,7 @@ const DashBoardContextProvider = (props) => {
         triggerInfoMessage,
         setTriggerInfoMessage,
         displayInfoMessage,
+        loaderVisibility,
       }}
     >
       {props.children}

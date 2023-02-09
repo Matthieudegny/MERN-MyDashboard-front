@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 //import dependecies
 import { BrowserRouter } from "react-router-dom";
 import { ReactQueryDevtools } from "react-query/devtools";
