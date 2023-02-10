@@ -29,6 +29,7 @@ export const options = {
       font: {
         size: 20,
       },
+      color: "white",
     },
   },
   responsive: true,

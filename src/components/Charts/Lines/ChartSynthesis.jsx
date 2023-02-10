@@ -96,6 +96,7 @@ export function LineChart() {
         font: {
           size: 20,
         },
+        color: "white",
       },
     },
     //afficher les elements => points

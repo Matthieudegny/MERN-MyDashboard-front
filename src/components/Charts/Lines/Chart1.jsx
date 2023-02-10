@@ -69,6 +69,7 @@ export const options = {
       font: {
         size: 20,
       },
+      color: "white",
     },
   },
   //afficher les elements => points
@@ -81,7 +82,6 @@ export const options = {
   scales: {
     y: {
       ticks: {
-        color: "white",
         //allow to add description at y ticks, for these example -> $200m
         callback: function (value) {
           if (value === 0) return "0%";
@@ -90,7 +90,7 @@ export const options = {
           }
         },
         font: {
-          size: 20,
+          size: 15,
         },
       },
       // suggestedMin: 2,
@@ -98,9 +98,8 @@ export const options = {
     },
     x: {
       ticks: {
-        color: "white",
         font: {
-          size: 20,
+          size: 15,
         },
       },
     },

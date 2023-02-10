@@ -53,7 +53,7 @@ const Calculation = () => {
       <div className="section_container_top">
         <section className="container_calculation_sectionTop">
           <div className="container_calculation_sectionTop_container">
-            <label>Capital:</label>
+            <label>Votre capital:</label>
             <div className="container_calculation_sectionTop_container_inputContainer">
               <input
                 className="container_calculation_sectionTop_container_inputContainer_input"
