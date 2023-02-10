@@ -71,7 +71,7 @@ const Login = () => {
                 <input
                   className="container_login_form_inputDiv_inputContainer_input"
                   type="email"
-                  placeholder="Entrez votre mot de passe ici"
+                  placeholder="Entrez votre adresse mail"
                   onChange={(e) => setemail(e.target.value)}
                   value={email}
                 />
