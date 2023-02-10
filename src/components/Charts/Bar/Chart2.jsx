@@ -42,6 +42,9 @@ export const options = {
     },
     y: {
       stacked: true,
+      ticks: {
+        stepSize: 1,
+      },
     },
   },
 };

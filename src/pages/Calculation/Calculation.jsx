@@ -29,6 +29,7 @@ const Calculation = () => {
             " Votre prix d'achat doit être différent de votre prix de stop loss",
             "#333A56"
           );
+        } else {
           if (risk > 100) {
             displayInfoMessage(
               " Votre risque ne peut être supérieur à 100% de votre capital",
@@ -36,6 +37,8 @@ const Calculation = () => {
             );
           } else {
             let result = (capital * (risk / 100)) / (buyPrice - stopLoss);
+            console.log("result", result);
+            if (result < 0) result = result * -1;
             result = result.toFixed(2);
             setPositionSize(result);
           }
