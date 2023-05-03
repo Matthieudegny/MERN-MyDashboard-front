@@ -26,7 +26,7 @@ const DashBoardContextProvider = (props) => {
 
   const onSuccessOrdersRequest = (allOrders) => {
     setOrders(allOrders);
-    // setLoaderVisibility(false);
+    setLoaderVisibility(false);
   };
 
   let pricesBTC = [];
