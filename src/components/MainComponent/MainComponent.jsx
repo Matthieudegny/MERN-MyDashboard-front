@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { RotatingLines } from "react-loader-spinner";
 
 import "./MainComponent.scss";
 
@@ -13,8 +14,7 @@ import Login from "../../pages/Login/Login";
 import Calculation from "../../pages/Calculation/Calculation";
 
 const MainComponent = () => {
-  const { message, bckColor, showErrorMessage, loaderVisibility } =
-    useContext(DashBoardContext);
+  const { message, bckColor, showErrorMessage, loaderVisibility } = useContext(DashBoardContext);
 
   return (
     <div className="MainComponent-container">
@@ -22,9 +22,7 @@ const MainComponent = () => {
       {/* Info Message */}
       <div
         style={{ backgroundColor: bckColor }}
-        className={`errorMessage ${
-          showErrorMessage ? "showErrorMessage" : "hideErrorMessage"
-        }`}
+        className={`errorMessage ${showErrorMessage ? "showErrorMessage" : "hideErrorMessage"}`}
       >
         {message}
       </div>
@@ -38,7 +36,15 @@ const MainComponent = () => {
           <Route path="/calculation" element={<Calculation />} />
         </Routes>
       ) : (
-        ""
+        <div className="MainComponent-loader">
+          <RotatingLines
+            strokeColor="#0792CE"
+            strokeWidth="5"
+            animationDuration="0.75"
+            width="150"
+            visible={true}
+          />
+        </div>
       )}
     </div>
   );

@@ -1,14 +1,6 @@
 import { createContext, useState, useEffect } from "react";
-import {
-  getPricesAndTransformToPerc,
-  sortTradeWonOrLostOrBE,
-  getBalance,
-} from "../utils/utils";
-import {
-  useFetchOrders,
-  useFetchBTCPrices,
-  useFetchNSQPrices,
-} from "../CustomHooks/useCustomeHook";
+import { getPricesAndTransformToPerc, sortTradeWonOrLostOrBE, getBalance } from "../utils/utils";
+import { useFetchOrders, useFetchBTCPrices, useFetchNSQPrices } from "../CustomHooks/useCustomeHook";
 
 export const DashBoardContext = createContext();
 
@@ -40,23 +32,13 @@ const DashBoardContextProvider = (props) => {
   let pricesBTC = [];
   let percentagesBTC = [];
   const onSuccessBTCrequest = (pricesBtc) => {
-    getPricesAndTransformToPerc(
-      pricesBTC,
-      percentagesBTC,
-      setPercBTC,
-      pricesBtc
-    );
+    getPricesAndTransformToPerc(pricesBTC, percentagesBTC, setPercBTC, pricesBtc);
   };
 
   let nasdaqPrices = [];
   let nasdaqPerc = [];
   const onSuccessNSQrequest = (pricesNSQ) => {
-    getPricesAndTransformToPerc(
-      nasdaqPrices,
-      nasdaqPerc,
-      setPercNSQ,
-      pricesNSQ
-    );
+    getPricesAndTransformToPerc(nasdaqPrices, nasdaqPerc, setPercNSQ, pricesNSQ);
   };
 
   //requests
@@ -67,12 +49,7 @@ const DashBoardContextProvider = (props) => {
   //synchronization at every changes for Orders
   useEffect(() => {
     setnumberOfTrades(Orders.length);
-    sortTradeWonOrLostOrBE(
-      Orders,
-      setnumberOfTradesWon,
-      setnumberOfTradesLost,
-      setnumberOfTradesBE
-    );
+    sortTradeWonOrLostOrBE(Orders, setnumberOfTradesWon, setnumberOfTradesLost, setnumberOfTradesBE);
     getBalance(Orders, setbalances, setAccountBalance, setPercPF);
   }, [Orders]);
 

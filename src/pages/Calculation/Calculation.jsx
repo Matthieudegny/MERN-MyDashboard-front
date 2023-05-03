@@ -116,11 +116,11 @@ const Calculation = () => {
       </div>
 
       <section className="container_calculation_sectionBottom">
-        <button onClick={calculPosition}>Calcul</button>
-
         <div className="container_calculation_sectionBottom_container">
           Taille du lot : {positionSize}
         </div>
+
+        <button onClick={calculPosition}>Calcul</button>
       </section>
     </ContainerBox>
   );
