@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { RotatingLines } from "react-loader-spinner";
+import { Vortex } from "react-loader-spinner";
 
 import "./MainComponent.scss";
 
@@ -37,12 +37,14 @@ const MainComponent = () => {
         </Routes>
       ) : (
         <div className="MainComponent-loader">
-          <RotatingLines
-            strokeColor="#0792CE"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="150"
+          <Vortex
             visible={true}
+            height="250"
+            width="250"
+            ariaLabel="vortex-loading"
+            wrapperStyle={{}}
+            wrapperClass="vortex-wrapper"
+            colors={["#079BD4", "blue", "#079BD4", "blue", "blue", "#079BD4"]}
           />
         </div>
       )}
