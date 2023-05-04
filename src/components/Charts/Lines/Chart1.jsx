@@ -12,15 +12,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 export const options = {
   //set up period circle size
@@ -65,7 +57,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Performance NSQ, BTC, Portefeuille par semaine",
+      text: "Performance NSQ, BTC, Portefeuille par mois",
       font: {
         size: 20,
       },
