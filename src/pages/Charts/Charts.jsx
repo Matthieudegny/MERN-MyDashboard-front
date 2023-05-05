@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 //composants
 import Container from "../../components/ContainerGraph/ContainerGraph";
@@ -10,16 +10,15 @@ import Chart3 from "../../components/Charts/Bar/Chart3";
 import { DashBoardContext } from "../../Context/Context";
 
 //import fonctions
-import {
-  getLabelsChart1,
-  getDatasChart2,
-  getDatasChart3,
-} from "../../utils/utils";
+import { getLabelsChart1, getDatasChart2, getDatasChart3 } from "../../utils/utils";
 
 //data
 import { labelsArrayChart2, labelsArrayChart3 } from "../../data/data";
 
 const Charts = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const {
     Orders,
     numberOfTrades,
@@ -81,11 +80,7 @@ const Charts = () => {
         />
       </div>
       <div style={{ marginTop: "20px", marginBottom: "12vh" }}>
-        <Container
-          labels={labelsArrayChart3}
-          values={valuesChart3}
-          graph={<Chart3 datas={dataChart3} />}
-        />
+        <Container labels={labelsArrayChart3} values={valuesChart3} graph={<Chart3 datas={dataChart3} />} />
       </div>
     </div>
   );

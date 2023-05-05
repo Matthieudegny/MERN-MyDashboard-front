@@ -6,19 +6,15 @@ import "./Orders.scss";
 //import context
 import { DashBoardContext } from "../../Context/Context";
 
-import {
-  useFetchOrders,
-  useSaveOrder,
-  useDeleteOrder,
-} from "../../CustomHooks/useCustomeHook";
-import {
-  GetDateFormatString,
-  checkIfMonthHasToBeDisplayed,
-} from "../../utils/utils";
+import { useFetchOrders, useSaveOrder, useDeleteOrder } from "../../CustomHooks/useCustomeHook";
+import { GetDateFormatString, checkIfMonthHasToBeDisplayed } from "../../utils/utils";
 
 const Orders = () => {
-  const { Orders, setOrderToUpdate, balances, token, displayInfoMessage } =
-    useContext(DashBoardContext);
+  const { Orders, setOrderToUpdate, balances, token, displayInfoMessage } = useContext(DashBoardContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [resetInputs, setResetInputs] = useState(false);
   const [date, setDate] = useState("");
@@ -49,10 +45,7 @@ const Orders = () => {
 
   const creationOrder = async () => {
     if (!token) {
-      displayInfoMessage(
-        " Vous devez vous connecter avant de passer un ordre",
-        "#333A56"
-      );
+      displayInfoMessage(" Vous devez vous connecter avant de passer un ordre", "#333A56");
     } else {
       if (
         date === "" ||
@@ -88,10 +81,7 @@ const Orders = () => {
       const objectToReturn = [id, token];
       deleteorderObject(objectToReturn);
     } else {
-      displayInfoMessage(
-        " Vous devez vous connecter avant de supprimer un ordre",
-        "#333A56"
-      );
+      displayInfoMessage(" Vous devez vous connecter avant de supprimer un ordre", "#333A56");
     }
   };
 
@@ -99,10 +89,7 @@ const Orders = () => {
     if (token) {
       setOrderToUpdate(order);
     } else {
-      displayInfoMessage(
-        " Vous devez vous connecter avant de modifier un ordre",
-        "#333A56"
-      );
+      displayInfoMessage(" Vous devez vous connecter avant de modifier un ordre", "#333A56");
     }
   };
 
@@ -163,9 +150,7 @@ const Orders = () => {
             <td>
               <select
                 name="direction"
-                className={`Orders-direction ${
-                  direction === "" ? "empty" : "checked"
-                }`}
+                className={`Orders-direction ${direction === "" ? "empty" : "checked"}`}
                 onChange={(event) => setDirection(event.target.value)}
                 value={direction}
               >
@@ -195,9 +180,7 @@ const Orders = () => {
             <td>
               <input
                 type="number"
-                className={`Orders-realise ${
-                  realise === "" ? "empty" : "checked"
-                }`}
+                className={`Orders-realise ${realise === "" ? "empty" : "checked"}`}
                 name="realise"
                 value={realise}
                 onChange={(event) => setRealise(+event.target.value)}
@@ -206,9 +189,7 @@ const Orders = () => {
             <td>
               <input
                 type="number"
-                className={`Orders-profit ${
-                  profit === "" ? "empty" : "checked"
-                }`}
+                className={`Orders-profit ${profit === "" ? "empty" : "checked"}`}
                 name="profit"
                 value={profit}
                 onChange={(event) => setProfit(+event.target.value)}
@@ -226,27 +207,16 @@ const Orders = () => {
             return (
               <React.Fragment key={index + order.date}>
                 {/* true or false from checkIfMonthHasToBeDisplayed()[1] */}
-                {checkIfMonthHasToBeDisplayed(
-                  order.date,
-                  monthsAlreadyDisplayed
-                )[1] && (
+                {checkIfMonthHasToBeDisplayed(order.date, monthsAlreadyDisplayed)[1] && (
                   <tr
                     style={{
                       borderBottom: "none",
                       height: "15px",
                     }}
                   >
-                    <td
-                      style={{ textAlign: "start", color: "rgb(6, 181, 230)" }}
-                    >
+                    <td style={{ textAlign: "start", color: "rgb(6, 181, 230)" }}>
                       {/* the month from checkIfMonthHasToBeDisplayed()[0] */}
-                      {
-                        checkIfMonthHasToBeDisplayed(
-                          order.date,
-                          monthsAlreadyDisplayed
-                        )[0]
-                      }
-                      :
+                      {checkIfMonthHasToBeDisplayed(order.date, monthsAlreadyDisplayed)[0]}:
                     </td>
                   </tr>
                 )}
@@ -260,16 +230,10 @@ const Orders = () => {
                   <td>{order.profit}</td>
                   <td>{balances[index]}</td>
                   <td className="container-button-actions">
-                    <button
-                      onClick={() => updateOrder(order)}
-                      className="container-button-actions-update"
-                    >
+                    <button onClick={() => updateOrder(order)} className="container-button-actions-update">
                       Modifier
                     </button>
-                    <button
-                      onClick={() => deleteOrder(order)}
-                      className="container-button-actions-delete"
-                    >
+                    <button onClick={() => deleteOrder(order)} className="container-button-actions-delete">
                       Supprimer
                     </button>
                   </td>
